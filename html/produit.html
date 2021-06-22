@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+        <body>
+
+          <body>
+
+            <p id="text">
+                Bienvenue sur Orinoco !
+            </p>
+            <nav>
+                <div id="menu">
+                    <p><a href="index.html">Accueil</a></p>
+                    <p>
+                        <a href="#">A propos </a>
+                        
+                    </p>
+                    <p><a href="panier.html">Panier</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
+            </nav>
+
+            <header>
+            </header>
+            
+            <section>
+            </section>
+            
+
+
+<script>
+
+    var header = document.querySelector('header');
+    var section = document.querySelector('section');
+
+//extration et paramètre de l'url
+
+var url = window.location.href.split("=");
+var type = url[1].replace("&id","");
+var id = url[2];
+
+
+chercherapi ('http://127.0.0.1:3000/api/'+type+"/"+id);
+//api/furniture/5ceiocdnjdc8d9959
+
+
+    function chercherapi(requestURL) {
+
+            var request = new XMLHttpRequest();
+
+            request.open('GET', requestURL);
+
+            request.responseType = 'json';
+            request.send();
+
+            request.onload = function() {
+                var teddies = request.response;
+                showTeddies(teddies);
+                }
+    }
+
+
+
+
+function showTeddies(teddies) {
+
+        var myArticle = document.createElement('article');
+        var myH2 = document.createElement('h2');
+        var myPara1 = document.createElement('p');
+        var myPara2 = document.createElement('p');
+        var myImage = document.createElement('img');
+
+        myH2.textContent = teddies.name;
+        myPara1.textContent = 'Prix : ' + teddies.price;
+        myPara2.textContent = 'Description : ' + teddies.description;
+        myImage.src = teddies.imageUrl;
+
+        myArticle.appendChild(myH2);
+        myArticle.appendChild(myPara1);
+        myArticle.appendChild(myPara2);
+        myArticle.appendChild(myImage);
+
+        section.appendChild(myArticle);
+}
+
+
+</script>
+
+</body>
+</html>

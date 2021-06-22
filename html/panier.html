@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+        <body>
+
+            
+
+            <p id="text">
+                Bienvenue sur le panier de Orinoco !
+            </p>
+
+              <nav>
+                  <div id="menu">
+                      <p><a href="index.html">Accueil</a></p>
+                      <p>
+                          <a href="#">A propos </a>
+                          
+                      </p>
+                      <p><a href="panier.html">Panier</a></p>
+                      <p><a href="contact.html">Contact</a></p>
+                  </div>
+              </nav>
+
+            <header>
+            </header>
+        
+            Une page “panier” contenant un résumé des produits dans le panier, le prix
+            total et un formulaire permettant de passer une commande. Les données
+            du formulaire doivent être correctes et bien formatées avant d'être
+            renvoyées au back-end. Par exemple, pas de texte dans les champs date
+
+            <script>
+              function monBoutonPanier(articleId){
+                let listFavorites = getFavorites();
+                listFavorites.push(articleId);
+                saveFavorites(listFavorites);
+              }
+
+              function getFavorites(){
+                let listFavorites = localStorage.getItem("listFavorites");
+                if(listFavorites == null){
+                  return [];
+                }else{
+                  return JSON.parse(listFavorites);
+                }
+              }
+
+              function saveFavorites(listFavorites){
+                localStorage.setItem("listFavorites", JSON.stringify(listFavorites));
+              }
+
+            </script>
+
+            </body>
+  </html>
