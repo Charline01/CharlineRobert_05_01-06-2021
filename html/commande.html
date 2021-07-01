@@ -33,6 +33,64 @@ commande, et indiquant le prix total et l'identifiant de commande envoyé
 par le serveur.
 
 
+<form name="contact" method="GET" action="http://127.0.0.1:3000/api/teddies/order">
+   
+        <fieldset>
+            <legend>Veuilez remplir les champs</legend>
+
+            <input id="firstName" name="firstName" placeholder="Prenom" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input id="lastName" name="lastName" placeholder="Nom" type="text" tabindex="2" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input id="adress" name="adress" placeholder="Adresse" type="text" tabindex="3" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input id="city" name="city" placeholder="Ville" type="text" tabindex="4" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input id="email" name="email" placeholder="E-mail" type="email" tabindex="5" required>
+        </fieldset>
+    
+ <input id="boutonCommander" type="submit" value="Commander">
+
+
+</form>
 
             </body>
+
+<script>
+document.getElementById("boutonCommander").addEventListener("click", validerFormulaire());
+
+function validerFormulaire(){
+    var premon = document.getElementById("firstName").value;
+    var nom = document.getElementById("lastName").value;
+    var adresse = document.getElementById("adress").value;
+    var ville = document.getElementById("city").value;
+    var email = document.getElementById("email").value;
+
+}
+
+function envoyerFormulaire(requestURL){
+    //créer une requete post avec xmlhttp fondation mettre dictionnaire contact avec tableau product (localstorage)
+
+var request = new XMLHttpRequest();
+
+request.open('POST', requestURL);
+
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+    var contact = request.response;
+    showTeddies(teddies);
+    }
+}
+    
+
+
+
+</script>
+
   </html>
