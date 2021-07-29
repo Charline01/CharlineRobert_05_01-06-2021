@@ -59,32 +59,29 @@
                     <div class="modal__content">
                       <h2>Formulaire de paiement</h2>
 
-                      <form name="contact" method="POST" action="remerciement.html">
+                      <form id="contact" name="contact" method="POST" action="remerciement.html">
                 
-                      <fieldset>
-                          <legend>Veuilez remplir les champs</legend>
+                      <fieldset name="contact">
+                          <legend>Coordonnées</legend>
 
                           <input id="firstName" name="firstName" placeholder="Prenom" type="text" tabindex="1" required autofocus>
-                      </fieldset>
-                      <fieldset>
+                      
                           <input id="lastName" name="lastName" placeholder="Nom" type="text" tabindex="2" required autofocus>
-                      </fieldset>
-                      <fieldset>
+                      
                           <input id="address" name="address" placeholder="Adresse" type="text" tabindex="3" required autofocus>
-                      </fieldset>
-
-                      <fieldset>
+                     
                           <input id="city" name="city" placeholder="Ville" type="text" tabindex="4" required autofocus>
 
-                      </fieldset>
-                      <fieldset>
+                  
                           <input id="email" name="email" placeholder="E-mail" type="email" tabindex="5" required>
                       </fieldset>
                   
-              
+                                  
 
                         <ul class="form-list">
                           
+                          <fieldset>
+                            <legend>Coordonnées bancaires</legend>
                           <li class="form-list__row">
                             <label>Numéro de la carte</label>
                             <div id="input--cc" class="creditcard-icon">
@@ -112,15 +109,19 @@
                             </div>
                           </li>
                           <li>
-                            <label><input type="checkbox" name="conditionaccepte25bca243-0477-40c3-a63e-30b012f77e15" id="conditionaccepte25bca243-0477-40c3-a63e-30b012f77e15" required> 
+                          </fieldset>
+                            <label class="phrasecoche"><input type="checkbox" name="conditionaccepte25bca243-0477-40c3-a63e-30b012f77e15" id="conditionaccepte25bca243-0477-40c3-a63e-30b012f77e15" required> 
         
                               En cochant cette case, je reconnais avoir pris connaissance des <a shape="rect" href="#">Conditions Générales de Vente</a> et je les accepte.
                               </label>
                             </li>
-                          
+                            <br>
+
+                            <button class="button" id="boutonCommander" type="submit" onclick="validerFormulaire()">Commander</button>
+
                           <li>
                               
-                                <button class="button" id="boutonCommander" type="submit" onclick="validerFormulaire()">Commander</button>
+                               
                             
                           </li>
                         </ul>
@@ -143,70 +144,156 @@
 <script>
 
 
+function envoyerFormulaire() {
+  var panier = JSON.parse(localStorage.getItem('panier'));
+
+var products = ""; 
+for (p = 0; p<panier.length;p++) {
+products += "&products[]=" + panier[p];
+}
+
+var request = new XMLHttpRequest();
+request.open("POST", 'http://127.0.0.1:3000/api/teddies/order', true);
+
+
+request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+var nom = localStorage.getItem('firstName');
+var prenom = localStorage.getItem('lastName');
+var adresse = localStorage.getItem('address');
+var ville = localStorage.getItem('city');
+var email = localStorage.getItem('email');
+
+if (nom!=""&&prenom!=""&&adresse!=""&&ville!=""&&email!=""){
+  
+  request.send("contact[firstName]=" + nom + "&contact[lastName]=" + prenom + "&contact[address]="+ adresse + "&contact[city]=" + ville + "&contact[email]=" + email + products);
+}
+else {
+  alert("probleme variable");
+}
+
+request.onload = function () {
+  var reponse=this.response
+localStorage.setItem('commande',this.response); 
+// window.location = 'remerciement.html';
+};
+}
+
+  
+// var panier = localStorage.getItem('panier');
+//   var panier = JSON.stringify(localStorage.getItem('panier'));
+
+
 
 function validerFormulaire(){
     var prenom = document.getElementById("firstName").value;
-    localStorage.setItem('firstName', JSON.stringify(firstName));
+    
 
     var nom = document.getElementById("lastName").value;
-    localStorage.setItem('lastName', JSON.stringify(lastName));
+    
 
     var adresse = document.getElementById("address").value;
-    localStorage.setItem('address', JSON.stringify(address));
+
 
     var ville = document.getElementById("city").value;
-    localStorage.setItem('city', JSON.stringify(city));
+    
 
     var email = document.getElementById("email").value;
-    localStorage.setItem('email', JSON.stringify(email));
+
 
 
     if (prenom != "" && nom !="" && adresse!="" && ville !="" && email !=""){
-
-          var contact = {
+      var contact = {
           firstName: prenom, 
           lastName: nom,
           address: adresse,
           city: ville,
           email: email
-          }
+          };
 
-        envoyerFormulaire ('http://127.0.0.1:3000/api/teddies/order', contact);
+          localStorage.setItem("contact", contact);
+          localStorage.setItem("firstName", prenom);
+          localStorage.setItem("lastName", nom);
+          localStorage.setItem("address", adresse);
+          localStorage.setItem("city", ville);
+          localStorage.setItem("email", email);
+
+        envoyerFormulaire();
 
 
 
     }
-    else alert("Veuillez remplir tous les champs du formulaire");
+     else alert("Veuillez remplir tous les champs du formulaire");
 
 
-}
+ }
 
-function envoyerFormulaire(requestURL, contact){
+// function envoyerFormulaire(requestURL, contact){
 
-    var request = new XMLHttpRequest();
+  //   var request = newXMLHttpRequest();
+  // var form = document.getElementById('contact');
 
-    var body = new FormData();
-    body.append("contact", contact);
-    body.append("products", localStorage.getItem("panier"));
 
-    request.open('POST', requestURL, true);
-    request.responseType = 'json';
-    request.send(body);
-    request.onload = function() {
-        var reponse = request.response;
-        localStorage.setItem("reponse", reponse);
+  //  var body = new FormData();
+  //  body.append('contact', contact);
+  //  body.append("products", localStorage.getItem("panier"));
+   
 
-        }
-}
+  //   request.open('POST', requestURL, true);
+  //   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  //   request.responseType = 'json';
+  //   request.send(body);
+  //   request.onload = function() {
+  //       var reponse = this.response;
+  //       alert(reponse);
+  //       localStorage.setItem("reponse", reponse);
 
-function ajouterInfoContact(requestURL, contact){
-                    var infoContact= JSON.parse(localStorage.getItem("infoContact"));
-                    infoContact.push(contact);
-                    localStorage.setItem('infoContact', JSON.stringify(contact));
+  //       }
+  
+    //var bod = { contact: contact, products: localStorage.getItem('panier') };
+ //var b =  JSON.stringify(bod)
+//   var request = new Request(requestURL,
+//     { method: "POST",
+//      headers: {
+// "Content-Type": "application/json"
+// }, 
+// body: JSON.stringify({
+// contact: {
+// firstName: firstName,
+// lastName: lastName,
+// address: address,
+// city: city,
+// email: email,
+// },
+// products: panier,
+//   }),
+//  })
+//     fetch(request)
+//   .then((response) => {
+//     if (response.ok) {
+//       return response.json();
+//     } else {
+//       throw new Error('Something went wrong on api server!');
+//     }
+//   })
+//   .then((data) => {
+//     localStorage.setItem("infosCommandes", JSON.stringify(data))
+//     console.log(data);
+//     // ...
+//   })
+//   .catch((error) => console.log("erreur de type :", error))
+//   }
 
-                    var total = parseInt(localStorage.getItem('total')) + parseInt(prix);
-                    localStorage.setItem('total', total);
-                }
+
+
+// function ajouterInfoContact(requestURL, contact){
+//                     var infoContact= JSON.parse(localStorage.getItem("infoContact"));
+//                     infoContact.push(contact);
+//                     localStorage.setItem('infoContact', JSON.stringify(contact));
+
+//                     var total = parseInt(localStorage.getItem('total')) + parseInt(prix);
+//                     localStorage.setItem('total', total);
+//                 }
 
 
 

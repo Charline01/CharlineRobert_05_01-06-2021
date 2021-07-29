@@ -19,11 +19,25 @@
   align-items: center;
   align-items: center;
 }
+.RecapCommande{
+align-items: center;
+text-align: left;
 
+}
 body{
   font-family: 'Comfortaa';
 }
 
+.body-popup{
+  width: 70%;
+  margin: auto;
+  
+}
+
+
+input{
+  font-family: "Comfortaa";
+}
 
 /* set body dimension and background */
 .sectionApropos { 
@@ -539,6 +553,10 @@ input {
 #input--cc.creditcard-icon--discover:before {
   background-image: url("data:image/svg+xml;utf8,%3Csvg%20class%3D%22nc-icon%20colored%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2248px%22%20height%3D%2248px%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cg%3E%3Cpath%20fill%3D%22%23E6E6E6%22%20d%3D%22M47%2C23.807V10c0-1.657-1.343-3-3-3H4c-1.657%2C0-3%2C1.343-3%2C3v28c0%2C1.657%2C1.343%2C3%2C3%2C3h10.589%20C30.229%2C38.811%2C43.003%2C30.094%2C47%2C23.807z%22%3E%3C/path%3E%20%3Cpath%20fill%3D%22%23E6E6E6%22%20d%3D%22M47%2C38V23.807C43.003%2C30.094%2C30.229%2C38.811%2C14.589%2C41H44C45.657%2C41%2C47%2C39.657%2C47%2C38z%22%3E%3C/path%3E%20%3Cpath%20fill%3D%22%23FA7000%22%20d%3D%22M47%2C38V23.807C43.003%2C30.094%2C30.229%2C38.811%2C14.589%2C41H44C45.657%2C41%2C47%2C39.657%2C47%2C38z%22%3E%3C/path%3E%20%3Cpath%20fill%3D%22%23FA7000%22%20d%3D%22M25.029%2C21.013c-1.69%2C0-3.062%2C1.32-3.062%2C2.951c0%2C1.734%2C1.312%2C3.028%2C3.062%2C3.028%20c1.708%2C0%2C3.054-1.313%2C3.054-2.995C28.084%2C22.325%2C26.747%2C21.013%2C25.029%2C21.013z%22%3E%3C/path%3E%20%3Cpath%20fill%3D%22%23444444%22%20d%3D%22M7.646%2C21.121H6v5.743h1.636c0.871%2C0%2C1.499-0.207%2C2.05-0.664c0.654-0.541%2C1.043-1.359%2C1.043-2.206%20C10.728%2C22.298%2C9.462%2C21.121%2C7.646%2C21.121z%20M8.956%2C25.434c-0.356%2C0.318-0.81%2C0.457-1.535%2C0.457H7.121v-3.798h0.301%20c0.725%2C0%2C1.161%2C0.13%2C1.535%2C0.464c0.385%2C0.345%2C0.617%2C0.878%2C0.617%2C1.429C9.573%2C24.539%2C9.342%2C25.091%2C8.956%2C25.434z%22%3E%3C/path%3E%20%3Crect%20x%3D%2211.245%22%20y%3D%2221.121%22%20fill%3D%22%23444444%22%20width%3D%221.116%22%20height%3D%225.743%22%3E%3C/rect%3E%20%3Cpath%20fill%3D%22%23444444%22%20d%3D%22M15.102%2C23.322c-0.674-0.247-0.871-0.412-0.871-0.722c0-0.361%2C0.352-0.635%2C0.836-0.635%20c0.335%2C0%2C0.612%2C0.134%2C0.906%2C0.462l0.583-0.764c-0.481-0.424-1.058-0.638-1.686-0.638c-1.016%2C0-1.791%2C0.707-1.791%2C1.642%20c0%2C0.794%2C0.36%2C1.197%2C1.411%2C1.579c0.439%2C0.153%2C0.662%2C0.257%2C0.776%2C0.328c0.224%2C0.145%2C0.335%2C0.352%2C0.335%2C0.592%20c0%2C0.467-0.37%2C0.811-0.871%2C0.811c-0.533%2C0-0.964-0.267-1.222-0.768l-0.722%2C0.7c0.516%2C0.756%2C1.135%2C1.094%2C1.988%2C1.094%20c1.163%2C0%2C1.982-0.778%2C1.982-1.887C16.757%2C24.202%2C16.377%2C23.788%2C15.102%2C23.322z%22%3E%3C/path%3E%20%3Cpath%20fill%3D%22%23444444%22%20d%3D%22M17.108%2C23.994c0%2C1.689%2C1.326%2C2.998%2C3.032%2C2.998c0.481%2C0%2C0.894-0.095%2C1.402-0.335v-1.32%20c-0.449%2C0.451-0.843%2C0.629-1.353%2C0.629c-1.128%2C0-1.927-0.816-1.927-1.98c0-1.1%2C0.825-1.972%2C1.877-1.972%20c0.531%2C0%2C0.937%2C0.188%2C1.402%2C0.646v-1.318c-0.491-0.248-0.894-0.351-1.379-0.351C18.467%2C20.991%2C17.108%2C22.325%2C17.108%2C23.994z%22%3E%3C/path%3E%20%3Cpolygon%20fill%3D%22%23444444%22%20points%3D%2230.617%2C24.977%2029.086%2C21.121%2027.864%2C21.121%2030.299%2C27.009%2030.9%2C27.009%2033.382%2C21.121%2032.17%2C21.121%20%22%3E%3C/polygon%3E%20%3Cpolygon%20fill%3D%22%23444444%22%20points%3D%2233.89%2C26.864%2037.066%2C26.864%2037.066%2C25.891%2035.011%2C25.891%2035.011%2C24.341%2036.988%2C24.341%2036.988%2C23.368%2035.011%2C23.368%2035.011%2C22.093%2037.066%2C22.093%2037.066%2C21.121%2033.89%2C21.121%20%22%3E%3C/polygon%3E%20%3Cpath%20fill%3D%22%23444444%22%20d%3D%22M41.5%2C22.815c0-1.076-0.738-1.695-2.031-1.695h-1.664v5.743h1.123v-2.309h0.146l1.547%2C2.309H42l-1.807-2.421%20C41.037%2C24.271%2C41.5%2C23.694%2C41.5%2C22.815z%20M39.254%2C23.762h-0.325v-1.737h0.343c0.7%2C0%2C1.075%2C0.294%2C1.075%2C0.853%20C40.347%2C23.452%2C39.972%2C23.762%2C39.254%2C23.762z%22%3E%3C/path%3E%3C/g%3E%3C/svg%3E"); }
 
+.conditionaccepte25bca243-0477-40c3-a63e-30b012f77e15{
+  width: auto;
+}
+
 .modal {
   display: -ms-flexbox;
   display: flex;
@@ -550,12 +568,12 @@ input {
 overflow-y: auto;
 align-content: center;
 margin:auto;
+width: 800px;
 }
   .modal__container {
     display: -ms-flexbox;
     display: flex;
-    max-width: 675px;
-    min-height: 400px;
+    min-height: 800px;
     margin-bottom: 125px;
     background-color: #ffffff;
     border-radius: 5px;
@@ -598,6 +616,9 @@ margin:auto;
    background: #ffffff8a;
  padding: 17px 14px 6px;
  border-radius: 20px;
+ align-items: center;
+ align-content: center;
+ padding: 100px;
 }
 
 .thanks-order h3 {
@@ -623,7 +644,7 @@ a.back-home.ui-link {
     background-repeat: no-repeat;
     background-attachment: fixed;
    /* background-position: center;*/
-   border: 6px solid #fca56a;
+   border: 6px solid #8f5bfd;
    border-radius: 20px;
 }
 .problem{
@@ -637,15 +658,8 @@ i.fa.fa-check  {
   border-radius: 50%;
   font-size: 40px;
 }
-.body-popup{
-    padding: 20%;
-  }
-
-
-
 .containerCommander{
-  margin: 10%;
-  height: 800px;
+  margin: 0% 10% 0% 10%;
   background-color: rgba(255, 255, 255, 0.521);
 }
 
@@ -1287,11 +1301,12 @@ body {
   font-size: 10px;
   color: #333;
 }
-.CartPage-ticket-itemValue {
-  width: 50%;
-  text-align: right;
+.CartPage-ticket-itemValue, #produitPanier, #city, #email, #firstName, #lastName, #address, input {
+  width: 100%;
   font-size: 16px;
   font-weight: 700;
+  padding: 0px 10px 20px 10px;
+  text-transform: uppercase;
 }
 .CartPage-ticket-itemValue .strikePrice {
   font-size: 12px;
@@ -1615,6 +1630,10 @@ body {
   width: 300px;
 }
 
+.phrasecoche{
+  padding: 20px 0px 20px 0px;
+}
+
 .boutonVoir, .boutonpanier, .boutonCommander, .boutonRetourPanier, .boutonSuppr {
    font-family: 'Comfortaa';
   border: 0;
@@ -1725,11 +1744,7 @@ html {
   section {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-  }
-
-  article {
-    max-width: 100%;
-    align-content: center;
+    
     
   }
 
@@ -1817,7 +1832,7 @@ flex-direction: column;
 }
 
 
-/* PAGE CONTACT */
+/* PAGE contacter */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 
@@ -1847,37 +1862,37 @@ body {
     position:relative;
 }
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+#contacter input[type="text"], #contacter input[type="email"], #contacter input[type="tel"], #contacter input[type="url"], #contacter textarea, #contacter button[type="submit"] { font:400 12px/16px "Comfortaa"; }
 
-#contact {
+#contacter {
     background:#fff4e9;
     padding:25px;
     margin:50px 0;
   border-radius: 12px;
 }
 
-#contact h3 {
+#contacter h3 {
     color: #8F5BFD;
     display: block;
     font-size: 30px;
     font-weight: 400;
 }
 
-#contact h4 {
+#contacter h4 {
     margin:5px 0 15px;
     display:block;
     font-size:13px;
 }
 
 fieldset {
-    border: medium none !important;
-    margin: 0 0 10px;
+  margin-bottom: 20px;
+  
     min-width: 100%;
     padding: 0;
     width: 100%;
 }
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+#contacter input[type="text"], #contacter input[type="email"], #contacter input[type="tel"], #contacter input[type="url"], #contacter textarea {
     width:100%;
     border:1px solid #CCC;
     background:#FFF;
@@ -1886,20 +1901,20 @@ fieldset {
   border-radius: 12px;
 }
 
-#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+#contacter input[type="text"]:hover, #contacter input[type="email"]:hover, #contacter input[type="tel"]:hover, #contacter input[type="url"]:hover, #contacter textarea:hover {
     -webkit-transition:border-color 0.3s ease-in-out;
     -moz-transition:border-color 0.3s ease-in-out;
     transition:border-color 0.3s ease-in-out;
     border:1px solid #AAA;
 }
 
-#contact textarea {
+#contacter textarea {
     height:100px;
     max-width:100%;
   resize:none;
 }
 
-#contact button[type="submit"] {
+#contacter button[type="submit"] {
     cursor:pointer;
     width:100%;
     border:none;
@@ -1911,16 +1926,16 @@ fieldset {
   border-radius: 12px;
 }
 
-#contact button[type="submit"]:hover {
+#contacter button[type="submit"]:hover {
     background:#09C;
     -webkit-transition:background 0.3s ease-in-out;
     -moz-transition:background 0.3s ease-in-out;
     transition:background-color 0.3s ease-in-out;
 }
 
-#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+#contacter button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
 
-#contact input:focus, #contact textarea:focus {
+#contacter input:focus, #contacter textarea:focus {
     outline:0;
     border:1px solid #999;
 }
@@ -2081,7 +2096,7 @@ html {
   box-sizing: border-box;
   color: #888;
   float: left;
-  font: normal normal 14px/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font: normal normal 14px/1.4 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Comfortaa";
   padding: 5px;
   width: auto;
   height: 100%;
